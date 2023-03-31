@@ -10,9 +10,29 @@ module.exports = {
   ],
   theme: {
     extend: {
+      color: {
+        'custom-gray-100': '#F8F9FC',
+        'custom-gray-200': '#E6E8F2',
+        'custom-gray-300': '#D1D6E4',
+        'custom-gray-400': '#8D95AF',
+        'custom-gray-500': '#303F73',
+        'custom-gray-600': '#252D4A',
+        'custom-gray-700': '#181C2A',
+        'custom-gray-800': '#0E1116',
+      },
       backgroundImage: {
         'gradient-vertical': `linear-gradient(180deg, #303F73 0%, #252D4A 100%)`,
         'gradient-horizontal': `linear-gradient(90deg, #303F73 0%, #252D4A 100%)`,
+      },
+      backgroundColor: {
+        'custom-gray-100': '#F8F9FC',
+        'custom-gray-200': '#E6E8F2',
+        'custom-gray-300': '#D1D6E4',
+        'custom-gray-400': '#8D95AF',
+        'custom-gray-500': '#303F73',
+        'custom-gray-600': '#252D4A',
+        'custom-gray-700': '#181C2A',
+        'custom-gray-800': '#0E1116',
       },
       keyframes: {
         moveBackground: {

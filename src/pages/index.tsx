@@ -1,7 +1,10 @@
 import Header from '@/components/Header'
 import Head from 'next/head'
+import { motion, useScroll } from 'framer-motion'
+import BoxContainer from '@/components/BoxContainer'
 
 export default function Home() {
+  const { scrollYProgress } = useScroll()
   return (
     <>
       <Head>
@@ -10,9 +13,37 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Header />
-      <main className="mt-20">
-        <h1 className="m-auto inline-flex">Hello world</h1>
+      <motion.div
+        className="z-20 bg-custom-gray-400 w-full h-1 fixed p-0 top-0"
+        style={{ scaleX: scrollYProgress }}
+      />
+      <main className="mt-16 max-w-6xl m-auto p-4 flex flex-col">
+        <section>
+          <motion.div
+            animate={{ x: 1 }}
+            transition={{ type: 'spring', stiffness: 100 }}
+          >
+            <h1 className="font-bold text-2xl">Desenvolvedor web</h1>
+          </motion.div>
+          <BoxContainer className="leading-loose text-sm">
+            <p>
+              Olá! Meu nome é Bruno Mateus e sou um desenvolvedor web júnior.
+              Tenho experiência com várias tecnologias, incluindo{' '}
+              <span className="text-blue-300">
+                React, TypeScript, JavaScript, Next.js, HTML, CSS,
+                Tailwind,Node,Prisma io, Express e Fastfy
+              </span>
+            </p>
+            <p>
+              Estou sempre procurando aprender mais e expandir minhas
+              habilidades. Estou animado para trabalhar em projetos desafiadores
+              e colaborar com outros desenvolvedores para criar soluções
+              incríveis.
+            </p>
+          </BoxContainer>
+        </section>
       </main>
     </>
   )
