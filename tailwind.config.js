@@ -21,9 +21,10 @@ module.exports = {
         'custom-gray-800': '#0E1116',
       },
       backgroundImage: {
-        'gradient-vertical': `linear-gradient(180deg, #303F73 0%, #252D4A 100%)`,
-        'gradient-horizontal': `linear-gradient(90deg, #303F73 0%, #252D4A 100%)`,
+        'gradient-vertical': `linear-gradient(180deg, #303F73 0%, #181C2A 100%)`,
+        'gradient-horizontal': `linear-gradient(90deg, #303F73 0%, #181C2A 100%)`,
       },
+
       backgroundColor: {
         'custom-gray-100': '#F8F9FC',
         'custom-gray-200': '#E6E8F2',
@@ -46,9 +47,28 @@ module.exports = {
             'background-position': '0% 50%',
           },
         },
+        ChangeColor: {
+          '0%': {
+            '-webkit-filter': 'brightness(0) invert(1)',
+            filter: 'brightness(0) invert(1)',
+          },
+          '11%': {
+            '-webkit-filter': 'none',
+            filter: 'none',
+          },
+          '33%': {
+            '-webkit-filter': 'none',
+            filter: 'none',
+          },
+          '55%': {
+            '-webkit-filter': 'brightness(0) invert(1)',
+            ' filter': 'brightness(0) invert(1)',
+          },
+        },
       },
       animation: {
         moveBackground: 'moveBackground 20s ease-in-out infinite',
+        changeColor: 'ChangeColor 10s infinite ease-in-out',
       },
     },
   },

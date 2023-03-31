@@ -9,9 +9,9 @@ interface BoxProps {
 export default function BoxContainer({ children, className }: BoxProps) {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      className={`bg-custom-gray-600 p-4 ${className}`}
+      initial={{ scale: 0 }}
+      whileInView={{ scale: 1 }}
+      className={` ${className}`}
     >
       {children}
     </motion.div>

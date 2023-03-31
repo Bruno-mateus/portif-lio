@@ -1,7 +1,36 @@
 import Header from '@/components/Header'
 import Head from 'next/head'
 import { motion, useScroll } from 'framer-motion'
+import { Inter } from 'next/font/google'
+import Image from 'next/image'
+import imgDev from '../assets/dev.svg'
 import BoxContainer from '@/components/BoxContainer'
+import Separator from '@/components/Separator'
+
+const inter = Inter({
+  variable: '--nunito-font',
+  subsets: ['latin'],
+})
+
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.35,
+      staggerChildren: 0.25,
+    },
+  },
+}
+
+const item = {
+  hidden: { x: 10, opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+  },
+}
 
 export default function Home() {
   const { scrollYProgress } = useScroll()
@@ -16,34 +45,59 @@ export default function Home() {
 
       <Header />
       <motion.div
-        className="z-20 bg-custom-gray-400 w-full h-1 fixed p-0 top-0"
+        className="z-20 bg-blue-300 w-full h-1 fixed p-0 top-0"
         style={{ scaleX: scrollYProgress }}
       />
       <main className="mt-16 max-w-6xl m-auto p-4 flex flex-col">
-        <section>
-          <motion.div
-            animate={{ x: 1 }}
-            transition={{ type: 'spring', stiffness: 100 }}
-          >
-            <h1 className="font-bold text-2xl">Desenvolvedor web</h1>
-          </motion.div>
-          <BoxContainer className="leading-loose text-sm">
-            <p>
-              Olá! Meu nome é Bruno Mateus e sou um desenvolvedor web júnior.
-              Tenho experiência com várias tecnologias, incluindo{' '}
-              <span className="text-blue-300">
-                React, TypeScript, JavaScript, Next.js, HTML, CSS,
-                Tailwind,Node,Prisma io, Express e Fastfy
-              </span>
-            </p>
-            <p>
-              Estou sempre procurando aprender mais e expandir minhas
-              habilidades. Estou animado para trabalhar em projetos desafiadores
-              e colaborar com outros desenvolvedores para criar soluções
-              incríveis.
-            </p>
+        <section className="grid grid-cols-1 text-center items-center justify-center gap-3 lg:grid-cols-2 lg:text-left ">
+          <div className="pt-4 leading-8">
+            <motion.h1
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.3,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+              className={`${inter.variable} font-bold z-0 text-5xl gap-2 animate-changeColor text-blue-300`}
+            >
+              <span>OLÁ,</span>
+              <span>BEM</span> <span> VINDO</span>
+            </motion.h1>
+            <motion.div
+              className="mt-4 m-auto"
+              variants={container}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.p variants={item}>
+                Olá! Meu nome é Bruno Mateus e sou um{' '}
+                <strong>desenvolvedor web júnior.</strong> Tenho experiência com
+                várias tecnologias, incluindo{' '}
+                <span className="text-blue-300">
+                  <strong>
+                    React, TypeScript, JavaScript, Next.js, HTML, CSS, Tailwind,
+                    Node, Prisma io, Express e Fastfy.
+                  </strong>
+                </span>
+              </motion.p>
+              <motion.p variants={item}>
+                Estou sempre procurando aprender mais e expandir minhas
+                habilidades. Estou animado para trabalhar em projetos
+                desafiadores e colaborar com outros desenvolvedores para criar
+                soluções incríveis.
+              </motion.p>
+            </motion.div>
+          </div>
+
+          <BoxContainer className="px-3.5">
+            <Image
+              className="w-4/5 m-auto"
+              src={imgDev}
+              alt="uma pessoa interagindo no computador"
+            />
           </BoxContainer>
         </section>
+        <Separator />
       </main>
     </>
   )

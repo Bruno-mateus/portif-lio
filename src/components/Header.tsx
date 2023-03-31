@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <header className="fixed w-full p-4 top-0 bg-gradient-horizontal animate-moveBackground ">
+    <header className="fixed w-full z-10 p-4 top-0 bg-custom-gray-500 animate-moveBackground ">
       <span>BM</span>
     </header>
   )
