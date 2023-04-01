@@ -10,7 +10,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      color: {
+      textColor: {
         'custom-gray-100': '#F8F9FC',
         'custom-gray-200': '#E6E8F2',
         'custom-gray-300': '#D1D6E4',

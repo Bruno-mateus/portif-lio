@@ -3,37 +3,35 @@ import Head from 'next/head'
 import { motion, useScroll } from 'framer-motion'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
-import imgDev from '../assets/dev.svg'
 import BoxContainer from '@/components/BoxContainer'
 import Separator from '@/components/Separator'
+import Text from '@/components/Text'
+import imgDev from '../assets/dev.svg'
+import gifDev from '../assets/dev.gif'
+import reactLogo from '../assets/react-js-icon.svg'
+import nodeLogo from '../assets/node-js-icon.svg'
+import tsLogo from '../assets/typescript-programming-language-icon.svg'
+import jsLogo from '../assets/javascript-programming-language-icon.svg'
+import gitLogo from '../assets/git-icon.svg'
+import tailwindLogo from '../assets/tailwind-css-icon.svg'
+import prismaLogo from '../assets/logo-dark.svg'
+import cssLogo from '../assets/css-icon.svg'
+import htmlLogo from '../assets/html-icon.svg'
+import fastLogo from '../assets/fastify-logo.svg'
+import expressLogo from '../assets/express-js-icon.svg'
+import radixLogo from '../assets/radix.svg'
+import nextLogo from '../assets/next-js.svg'
+import { useState } from 'react'
+import CardTech from '@/components/CardTech'
 
 const inter = Inter({
   variable: '--nunito-font',
   subsets: ['latin'],
 })
 
-const container = {
-  hidden: { opacity: 1, scale: 0 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delayChildren: 0.35,
-      staggerChildren: 0.25,
-    },
-  },
-}
-
-const item = {
-  hidden: { x: 10, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-  },
-}
-
 export default function Home() {
   const { scrollYProgress } = useScroll()
+
   return (
     <>
       <Head>
@@ -48,7 +46,7 @@ export default function Home() {
         className="z-20 bg-blue-300 w-full h-1 fixed p-0 top-0"
         style={{ scaleX: scrollYProgress }}
       />
-      <main className="mt-16 max-w-6xl m-auto p-4 flex flex-col">
+      <main className="mt-16 max-w-7xl m-auto p-4 flex flex-col">
         <section className="grid grid-cols-1 text-center items-center justify-center gap-3 lg:grid-cols-2 lg:text-left ">
           <div className="pt-4 leading-8">
             <motion.h1
@@ -63,13 +61,8 @@ export default function Home() {
               <span>OLÁ,</span>
               <span>BEM</span> <span> VINDO</span>
             </motion.h1>
-            <motion.div
-              className="mt-4 m-auto"
-              variants={container}
-              initial="hidden"
-              animate="visible"
-            >
-              <motion.p variants={item}>
+            <motion.div className="mt-4 m-auto">
+              <Text delayValue={0.15}>
                 Olá! Meu nome é Bruno Mateus e sou um{' '}
                 <strong>desenvolvedor web júnior.</strong> Tenho experiência com
                 várias tecnologias, incluindo{' '}
@@ -79,25 +72,98 @@ export default function Home() {
                     Node, Prisma io, Express e Fastfy.
                   </strong>
                 </span>
-              </motion.p>
-              <motion.p variants={item}>
+              </Text>
+              <Text delayValue={0.25}>
                 Estou sempre procurando aprender mais e expandir minhas
                 habilidades. Estou animado para trabalhar em projetos
                 desafiadores e colaborar com outros desenvolvedores para criar
                 soluções incríveis.
-              </motion.p>
+              </Text>
             </motion.div>
           </div>
 
           <BoxContainer className="px-3.5">
             <Image
-              className="w-4/5 m-auto"
+              className="m-auto "
               src={imgDev}
               alt="uma pessoa interagindo no computador"
             />
           </BoxContainer>
         </section>
         <Separator />
+        <section className="grid grid-cols-1 mt-8 items-center justify-center568============ lg:grid-cols-2 gap-3 ">
+          <BoxContainer className="px-3.5">
+            <Image
+              className="m-auto "
+              src={gifDev}
+              alt="uma pessoa interagindo no computador"
+            />
+          </BoxContainer>
+          <BoxContainer className="leading-8 m-auto">
+            <motion.h2
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.3,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+              className={`${inter.variable} font-bold z-0 text-3xl gap-2  text-blue-400`}
+            >
+              SOBRE MIM
+            </motion.h2>
+            <motion.div className="mt-4">
+              <Text delayValue={0.15}>
+                Diretamente de Maringá - PR e com 24 anos, estou em transição de
+                carreira, estou me formando em análise e desenvolvimento de
+                sistemas na{' '}
+                <strong className="text-yellow-600">Uniasselvi</strong> e estudo
+                técnologias da web na{' '}
+                <strong className="text-purple-800">Rocketseat</strong>.
+              </Text>
+
+              <Text delayValue={0.25}>
+                Sou apaixonado por café, música, games e técnologia.
+              </Text>
+              <Text delayValue={0.35}>
+                Atualmente sou Desenvolvedor Web com mais foco no Front-End
+                porém sigo estudando tecnologias de linguagens do Back-End a
+                qual tenho um certo conhecimento para o desenvolimento de
+                algumas aplicações.
+              </Text>
+            </motion.div>
+          </BoxContainer>
+        </section>
+        <Separator />
+        <section>
+          <motion.h2
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.3,
+              ease: [0, 0.71, 0.2, 1.01],
+            }}
+            className={`${inter.variable} font-bold z-0 text-3xl gap-2  text-blue-400`}
+          >
+            SKILLS
+          </motion.h2>
+          <div className="grid grid-cols-1 bg-slate-800 p-4 gap-4 lg:p-8 lg:grid-cols-4">
+            <CardTech delayValue={0.15} title={'Next'}>
+              <Image className="p-4" src={nextLogo} alt="logo escrito next" />
+            </CardTech>
+            <CardTech delayValue={0.25} title={'React'}>
+              <Image className="p-4" src={reactLogo} alt="logo React" />
+            </CardTech>
+            <CardTech delayValue={0.35} title={'Typescript'}>
+              <Image className="p-4" src={tsLogo} alt="logo typescript" />
+            </CardTech>
+            <CardTech delayValue={0.15} title={'Next'}>
+              <Image className="p-4" src={nextLogo} alt="logo escrito next" />
+            </CardTech>
+            <CardTech delayValue={0.15} title={'Next'}>
+              <Image className="p-4" src={nextLogo} alt="logo escrito next" />
+            </CardTech>
+          </div>
+        </section>
       </main>
     </>
   )
