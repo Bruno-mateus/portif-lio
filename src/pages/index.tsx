@@ -6,7 +6,6 @@ import Image from 'next/image'
 import BoxContainer from '@/components/BoxContainer'
 import Separator from '@/components/Separator'
 import Text from '@/components/Text'
-import imgDev from '../assets/dev.svg'
 import gifDev from '../assets/dev.gif'
 import reactLogo from '../assets/react-js-icon.svg'
 import nodeLogo from '../assets/node-js-icon.svg'
@@ -46,9 +45,9 @@ export default function Home() {
         className="z-20 bg-blue-300 w-full h-1 fixed p-0 top-0"
         style={{ scaleX: scrollYProgress }}
       />
-      <main className="mt-16 max-w-7xl m-auto p-4 flex flex-col">
+      <main className="mt-16 max-w-7xl m-auto p-4 flex flex-col  bg-custom-gray-700">
         <section className="grid grid-cols-1 text-center items-center justify-center gap-3 lg:grid-cols-2 lg:text-left ">
-          <div className="pt-4 leading-8">
+          <div className="pt-4 ">
             <motion.h1
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -85,20 +84,13 @@ export default function Home() {
           <BoxContainer className="px-3.5">
             <Image
               className="m-auto "
-              src={imgDev}
+              src={gifDev}
               alt="uma pessoa interagindo no computador"
             />
           </BoxContainer>
         </section>
         <Separator />
-        <section className="grid grid-cols-1 mt-8 items-center justify-center568============ lg:grid-cols-2 gap-3 ">
-          <BoxContainer className="px-3.5">
-            <Image
-              className="m-auto "
-              src={gifDev}
-              alt="uma pessoa interagindo no computador"
-            />
-          </BoxContainer>
+        <section className="grid grid-cols-1 mt-8 items-center justify-center lg:grid-cols-2 gap-3 ">
           <BoxContainer className="leading-8 m-auto">
             <motion.h2
               initial={{ opacity: 0, scale: 0.5 }}
@@ -113,24 +105,95 @@ export default function Home() {
             </motion.h2>
             <motion.div className="mt-4">
               <Text delayValue={0.15}>
-                Diretamente de Maringá - PR e com 24 anos, estou em transição de
-                carreira, estou me formando em análise e desenvolvimento de
-                sistemas na{' '}
-                <strong className="text-yellow-600">Uniasselvi</strong> e estudo
-                técnologias da web na{' '}
-                <strong className="text-purple-800">Rocketseat</strong>.
+                Com 24 anos e vindo diretamente de Maringá - PR, estou em
+                transição de carreira. Estou me formando em Análise e
+                Desenvolvimento de Sistemas na{' '}
+                <span className="text-yellow-400">Uniasselvi</span> e estudo
+                tecnologias da web na{' '}
+                <span className="text-purple-500">Rocketseat</span>.
               </Text>
 
               <Text delayValue={0.25}>
                 Sou apaixonado por café, música, games e técnologia.
               </Text>
               <Text delayValue={0.35}>
-                Atualmente sou Desenvolvedor Web com mais foco no Front-End
-                porém sigo estudando tecnologias de linguagens do Back-End a
-                qual tenho um certo conhecimento para o desenvolimento de
-                algumas aplicações.
+                Atualmente sou Desenvolvedor Web com mais foco no Front-End, mas
+                continuo estudando tecnologias de linguagens do Back-End, nas
+                quais tenho algum conhecimento para o desenvolvimento de algumas
+                aplicações.
               </Text>
             </motion.div>
+          </BoxContainer>
+          <BoxContainer>
+            <motion.h2
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.3,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+              className={`${inter.variable} font-bold z-0 text-3xl gap-2  text-blue-400`}
+            >
+              SKILLS
+            </motion.h2>
+            <div className="grid grid-cols-3 p-4 gap-8 lg:p-8 lg:grid-cols-4">
+              <CardTech delayValue={0.15} title={'Next'}>
+                <Image
+                  className="p-4 bg-gray-100"
+                  src={nextLogo}
+                  alt="logo escrito next"
+                />
+              </CardTech>
+              <CardTech delayValue={0.25} title={'React'}>
+                <Image
+                  className="p-4 h-full w-full"
+                  src={reactLogo}
+                  alt="logo React"
+                />
+              </CardTech>
+              <CardTech delayValue={0.35} title={'Typescript'}>
+                <Image
+                  className="p-4 h-full w-full"
+                  src={tsLogo}
+                  alt="logo typescript"
+                />
+              </CardTech>
+              <CardTech delayValue={0.45} title={'Javascript'}>
+                <Image
+                  className="p-4 h-full w-full"
+                  src={jsLogo}
+                  alt="logo javascript"
+                />
+              </CardTech>
+              <CardTech delayValue={0.55} title={'Node'}>
+                <Image
+                  className="p-4 h-full w-full"
+                  src={nodeLogo}
+                  alt="logo node js"
+                />
+              </CardTech>
+              <CardTech delayValue={0.65} title={'Tailwind'}>
+                <Image
+                  className="p-4 h-full w-full"
+                  src={tailwindLogo}
+                  alt="logo Tailwind"
+                />
+              </CardTech>
+              <CardTech delayValue={0.75} title={'git'}>
+                <Image
+                  className="p-4 h-full w-full"
+                  src={gitLogo}
+                  alt="Logo git"
+                />
+              </CardTech>
+              <CardTech delayValue={0.85} title={'Prisma ORM'}>
+                <Image
+                  className="bg-gray-100 p-4 h-full w-full"
+                  src={prismaLogo}
+                  alt="logo Prisma"
+                />
+              </CardTech>
+            </div>
           </BoxContainer>
         </section>
         <Separator />
@@ -144,25 +207,8 @@ export default function Home() {
             }}
             className={`${inter.variable} font-bold z-0 text-3xl gap-2  text-blue-400`}
           >
-            SKILLS
+            PROJETOS
           </motion.h2>
-          <div className="grid grid-cols-1 bg-slate-800 p-4 gap-4 lg:p-8 lg:grid-cols-4">
-            <CardTech delayValue={0.15} title={'Next'}>
-              <Image className="p-4" src={nextLogo} alt="logo escrito next" />
-            </CardTech>
-            <CardTech delayValue={0.25} title={'React'}>
-              <Image className="p-4" src={reactLogo} alt="logo React" />
-            </CardTech>
-            <CardTech delayValue={0.35} title={'Typescript'}>
-              <Image className="p-4" src={tsLogo} alt="logo typescript" />
-            </CardTech>
-            <CardTech delayValue={0.15} title={'Next'}>
-              <Image className="p-4" src={nextLogo} alt="logo escrito next" />
-            </CardTech>
-            <CardTech delayValue={0.15} title={'Next'}>
-              <Image className="p-4" src={nextLogo} alt="logo escrito next" />
-            </CardTech>
-          </div>
         </section>
       </main>
     </>

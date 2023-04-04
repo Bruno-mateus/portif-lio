@@ -14,7 +14,7 @@ export default function Text({
 }: TextProps) {
   return (
     <motion.p
-      className={`${className}`}
+      className={`${className} leading-9`}
       initial={{ x: 10, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
       transition={{ delay: delayValue }}
